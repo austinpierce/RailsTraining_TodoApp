@@ -2,6 +2,15 @@
   Create a new todo
 </h1>
 
+<% if @todo.errors.any? %>
+  <h4>The following errors prevented the todo from being save:</h4>
+  <ul>
+    <% @todo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+</ul>
+<% end %>
+
 <%= form_for @todo  do |f| %>
   <p>
     <%= f.label :name %>  <br>
