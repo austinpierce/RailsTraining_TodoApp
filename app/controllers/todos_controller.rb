@@ -15,8 +15,8 @@ class TodosController < ApplicationController
     end
   end
   
-  def show
-    
+  def show # action
+    @todo = Todo.find(params[:id])
   end
 
   
