@@ -9,7 +9,11 @@
   </head>
 
   <body>
-    Test (Remove from application.html.erb file)
+    <% flash.each do |name, msg| %>
+      <ul>
+        <li><%= msg %></li>
+      </ul>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -8,11 +8,17 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params) # instance variable
     if @todo.save # save to DB
+      flash[:notice] = "Todo was created successfully!" # flash
     redirect_to todo_path(@todo)   
     else
       render 'new'
     end
   end
+  
+  def show
+    
+  end
+
   
   private # private means only available to this controller
     def todo_params
