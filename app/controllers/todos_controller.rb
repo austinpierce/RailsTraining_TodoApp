@@ -31,8 +31,11 @@ class TodosController < ApplicationController
      else
       render 'edit'
     end
-    
   end
+   
+   def index
+    @todos = Todo.all # can be named anything (pizza), used plural here because it's multiple
+   end
   
   private # private means only available to this controller
     def todo_params
