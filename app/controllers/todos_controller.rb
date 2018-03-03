@@ -37,6 +37,14 @@ class TodosController < ApplicationController
     @todos = Todo.all # can be named anything (pizza), used plural here because it's multiple
    end
   
+  def destroy
+    @todo = Todo.find(params[:id])  
+    @todo.destroy
+    flash[:notice] = "Todo was deleted successfully"
+    redirect_to todos_path
+  end
+  
+  
   private # private means only available to this controller
     def todo_params
       params.require(:todo).permit(:name, :description) #white listing
